@@ -68,6 +68,9 @@ Python (implemented with Claude AI direction) · Anthropic Claude API · pandas 
 - The test set is a held-out sample of 240 tickets (6% of the 4,000), not the full dataset — kept small to control API cost and runtime for a portfolio-scale evaluation. The split is stratified, so all 8 categories are represented proportionally.
 - This is a classification prototype, not a production triage system. It isn't connected to a real service desk, and no claim is made that it's deployed anywhere.
 
+## What This Led To — Phase 4
+Neither the AI agent tested here nor a simple non-AI baseline was reliable enough to trust with an actual classification decision on its own. That honest limit directly shaped **[Phase 4: Storage Request Self-Service Intake Assistant](https://github.com/bhavna-rao/it-storage-intake-assistant-phase4)** — a working prototype where AI is scoped narrowly to understanding what a requester typed, while a fixed, deterministic business rule (not the AI) makes the actual approve/route decision.
+
 ## Files in this repo
 - `triage_agent.py` — the full pipeline: data split, few-shot prompt construction, batched classification, evaluation, and chart generation
 - `data/it_tickets_sample_4000.csv` — the same 4,000-ticket sample used in Phase 1
